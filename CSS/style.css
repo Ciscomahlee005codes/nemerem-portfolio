@@ -605,7 +605,7 @@ textarea:focus {
   cursor: pointer;
   text-decoration: none;
   font-size: 16px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .button:hover{
   transition: 800ms  ease-in-out;
