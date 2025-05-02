@@ -1,0 +1,75 @@
+/* Default sidebar (desktop size) */
+.aside {
+    width: 270px;
+    height: 100%;
+    background-color: var(--bg-black-100);
+    padding: 30px;
+    border-right: 1px solid var(--bg-black-50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    transition: transform 0.3s ease; /* Smooth transition for sliding */
+  }
+  
+  /* Hide sidebar by default on smaller screens */
+  @media (max-width: 1199px) {
+    .aside {
+      transform: translateX(-100%); /* Sidebar is off-screen */
+    }
+  
+    /* Toggle the nav-toggler visibility */
+    .nav-toggler {
+      display: flex;
+    }
+  }
+  
+  /* Show sidebar when toggled */
+  .aside.openSideBar {
+    transform: translateX(0); /* Sidebar slides into view */
+  }
+  
+  /* Additional transition for smooth sliding */
+  .aside .nav-toggler {
+    height: 40px;
+    width: 45px;
+    border: 1px solid var(--bg-black-50);
+    cursor: pointer;
+    position: fixed;
+    left: 300px;
+    top: 20px;
+    border-radius: 5px;
+    background: var(--bg-black-100);
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .aside .nav-toggler span {
+    height: 2px;
+    width: 18px;
+    background: var(--skin-color);
+    display: inline-block;
+    position: relative;
+  }
+  
+  .aside .nav-toggler span::before,
+  .aside .nav-toggler span::after {
+    content: '';
+    height: 2px;
+    width: 18px;
+    background: var(--skin-color);
+    position: absolute;
+  }
+  
+  .aside .nav-toggler span::before {
+    top: -6px;
+  }
+  
+  .aside .nav-toggler span::after {
+    top: 6px;
+  }
+  
