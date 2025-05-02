@@ -591,11 +591,16 @@ textarea:focus {
   text-align: center;
 }
 .button{
+  border: none;
+  outline: none;
+}
+.button a{
   padding: 10px 20px;
   background-color: var(--skin-color);
   font-family: "Josefin Sans", sans-serif;
   color: white;
   border: none;
+  outline: none;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -605,7 +610,6 @@ textarea:focus {
 .button:hover{
   transition: 800ms  ease-in-out;
   opacity: 0.8;
-  border: 1.5px gainsboro solid;
 
 }
 /* Footer Sectiion */
