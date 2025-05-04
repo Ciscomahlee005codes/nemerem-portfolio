@@ -3,9 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>EmailJS Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init({
+        publicKey: "eRtIeJg8MBddev4u0",
+      });
+    })();
+  </script>
 </head>
 <body>
-  <!-- Form  -->
+  <form id="messageForm">
+    <label for="fName">First Name</label>
+    <input type="text" name="name" id="fName" placeholder="First Name" required>
+
+    <label for="lName">Last Name</label>
+    <input type="text" name="surname" id="lName" placeholder="Last Name" required>
+
+    <label for="mailAddress">Email Address</label>
+    <input type="email" name="email" id="mailAddress" placeholder="Email Address" required>
+
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" id="subject" placeholder="Subject" required>
+
+    <label for="messageJs">Message</label>
+    <textarea name="message" id="messageJs" rows="6" placeholder="Enter Your Message" required></textarea>
+
+    <button type="submit" onclick="sendMail(event)">Submit</button>
+  </form>
+
+  <script>
+    function sendMail(event) {
+      event.preventDefault();
+      let parms = {
+        name: document.getElementById('fName').value,
+        surname: document.getElementById('lName').value,
+        email: document.getElementById('mailAddress').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('messageJs').value
+      };
+
+      emailjs.send('service_o16sf7g', 'template_hm8cct5', parms)
+        .then(function(response) {
+          alert('Email Sent Successfully!');
+          document.getElementById("messageForm").reset(); // Optional: reset form
+        }, function(error) {
+          alert('FAILED to send email. Error: ' + JSON.stringify(error));
+        });
+    }
+  </script>
 </body>
 </html>

@@ -16,6 +16,15 @@
     <title>My Portfolio</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <!-- Email Js  -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init({
+          publicKey: "eRtIeJg8MBddev4u0",
+        });
+      })();
+    </script>
 </head>
 <body>
     <!-- Main Container Start -->
@@ -368,32 +377,20 @@
                   <div class="send-message-container">
                     <h2 class="message-title">Send Me A Message</h2>
                     <h4 class="sub-title">I'm Very Responsive To Messages</h4><br>
-                    <form  id="messageForm" method="post">
+                    <form  id="messageForm">
                       <div class="first-set">
-                        <label for=""></label>
-                        <input type="text" name="First Name" id="fName" placeholder="First Name" required>
-                        <div class="error-message" id="fNameError"></div>
-                  
-                        <label for=""></label>
-                        <input type="text" name="Last Name" id="lName" placeholder="Last Name" required>
-                        <div class="error-message" id="lNameError"></div>
+                        <input type="text" name="name" id="fName" placeholder="First Name" required>
+                        <input type="text" name="surname" id="lName" placeholder="Last Name" required>
                       </div>
                       <div class="second-set">
-                        <label for=""></label>
                         <input type="email" name="email" id="mailAddress" placeholder="Email Address" required>
-                        <div class="error-message" id="mailAddressError"></div>
-                  
-                        <label for=""></label>
                         <input type="text" name="subject" id="subject" placeholder="Subject" required>
-                        <div class="error-message" id="subjectError"></div><br>
                       </div>
-                      <label for="Message" class="mess">Message</label>
-                      <textarea name="message" id="messageJs" rows="6" cols="50" placeholder="Enter Your Message" required></textarea>
-                      <div class="error-message" id="messageError"></div><br><br>
+                      <label for="messageJs" class="mess">Message</label>
+                      <textarea name="message" id="messageJs" rows="6" cols="50" placeholder="Enter Your Message" required></textarea><br><br>
                   
                       <div class="btn-container">
-                        <button type="submit" class="button">
-                          <a href="mailto:ciscomahlee@gmail.com">Submit</a></button>
+                        <button type="submit" class="button" onclick="sendMail(event)">Submit</button>
                       </div>
                     </form>
                   </div>
@@ -445,5 +442,25 @@
     <!-- Internal Javascript -->
      <script src="Js/script.js"></script>
      <script src="Js/style-switcher.js"></script>
+     <script>
+      function sendMail(event) {
+        event.preventDefault();
+        let parms = {
+          name: document.getElementById('fName').value,
+          surname: document.getElementById('lName').value,
+          email: document.getElementById('mailAddress').value,
+          subject: document.getElementById('subject').value,
+          message: document.getElementById('messageJs').value
+        };
+  
+        emailjs.send('service_o16sf7g', 'template_hm8cct5', parms)
+          .then(function(response) {
+            alert('Email Sent Successfully!');
+            document.getElementById("messageForm").reset(); // Optional: reset form
+          }, function(error) {
+            alert('FAILED to send email. Error: ' + JSON.stringify(error));
+          });
+      }
+    </script>
 </body>
 </html>

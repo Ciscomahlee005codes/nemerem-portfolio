@@ -399,9 +399,7 @@ figcaption{
   font-size: 14px;
   margin-bottom: 5px;
 }
-.timeline-text{
-  /* text-align: justify; */
-}
+
 /* Service Section */
 .service-section, .portfolio-section{
   padding-top: 40px;
@@ -485,9 +483,6 @@ figcaption{
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 20px;
-}
-.box-content{
-  /* text-align: justify; */
 }
 .project-link{
   background-color: var(--skin-color);
@@ -588,13 +583,11 @@ textarea:focus {
    padding: 20px;
 }
 .btn-container{
-  text-align: center;
+ display: flex;
+ justify-content: center;
 }
+
 .button{
-  border: none;
-  outline: none;
-}
-.button a{
   padding: 10px 20px;
   background-color: var(--skin-color);
   font-family: "Josefin Sans", sans-serif;
@@ -605,7 +598,8 @@ textarea:focus {
   cursor: pointer;
   text-decoration: none;
   font-size: 16px;
-  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
 }
 .button:hover{
   transition: 800ms  ease-in-out;
