@@ -651,6 +651,10 @@ footer{
    .aside{
     left: -270px;
    }
+   .logo-txt{
+    position: relative;
+    right: 5rem;
+  }
    .main-content{
     padding-left: 0;
    }
