@@ -60,12 +60,22 @@ const sections = document.querySelectorAll("section");
         }
       });
 
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active");
-        }
-      });
+      // Close the sidebar when a nav link is clicked (on small screens)
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    // Only close if sidebar is open
+    if (aside.classList.contains("openSideBar")) {
+      aside.classList.remove("openSideBar");
+      navToggler.classList.remove("active");
+
+      // Reset the icon to fa-bars
+      const barIcon = navToggler.querySelector('i');
+      barIcon.classList.remove('fa-xmark');
+      barIcon.classList.add('fa-bars');
+    }
+  });
+});
+
     });
     window.addEventListener('load', () => {
       // Force scroll to top
