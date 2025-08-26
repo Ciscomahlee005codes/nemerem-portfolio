@@ -490,6 +490,7 @@ figcaption{
 }
 .pro-links{
  display: flex;
+ flex-direction: column;
  justify-content: center;
  align-items: center;
  position: relative;
@@ -851,6 +852,11 @@ textarea{
     gap: 30px;
   }
 }
+@media (max-width: 414px) {
+  .port-link{
+    font-size: 13px;
+  }
+}
 @media (max-width:393px) {
   .about-link{
     background-color: var(--skin-color);
@@ -878,6 +884,13 @@ textarea{
     gap: 10px;
      padding: 10px;
 }
+.contact-info-item{
+    display: grid;
+    grid-template-columns:  auto;
+    place-content: center;
+    margin-left: 40px;
+    
+  }
 }
 @media (max-width:375px) {
   .skill-container{
@@ -896,7 +909,6 @@ textarea{
     display: grid;
     grid-template-columns:  auto;
     place-content: center;
-    margin-left: 70px;
     
   }
   .locay{

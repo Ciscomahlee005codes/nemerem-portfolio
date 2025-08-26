@@ -37,6 +37,7 @@ navToggler.addEventListener('click', () => {
   aside.classList.toggle('openSideBar');
   navToggler.classList.toggle('active'); 
 });
+
 // On page load, set correct icon and logo
 window.addEventListener('load', () => {
   const barIcon = navToggler.querySelector('i');
@@ -46,6 +47,22 @@ window.addEventListener('load', () => {
     barIcon.classList.add('fa-xmark');
   }
 });
+
+// 👉 Close sidebar when clicking a link inside it
+const sideLinks = aside.querySelectorAll('a'); // all <a> links inside sidebar
+
+sideLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    aside.classList.remove('openSideBar');
+    navToggler.classList.remove('active');
+
+    // reset the toggle icon back to bars
+    const barIcon = navToggler.querySelector('i');
+    barIcon.classList.add('fa-bars');
+    barIcon.classList.remove('fa-xmark');
+  });
+});
+
 
 // Smooth Scroll
 const sections = document.querySelectorAll("section");
