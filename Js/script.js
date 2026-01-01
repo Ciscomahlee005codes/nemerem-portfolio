@@ -1,6 +1,6 @@
 // Typing Animaion
 var typed = new Typed('.typing',{
-    strings:['','Full Stack Web Developer', 'Tech Consultant'],
+    strings:['','Frontend Web Developer', 'Tech Consultant'],
     typeSpeed: 100,
     backSpeed: 60,
     loop: true
@@ -103,4 +103,45 @@ navLinks.forEach(link => {
         history.replaceState(null, null, ' ');
       }
     });
-   
+  //  Portfolio Pagination 
+  const projectsPerPage = 3;
+const projects = document.querySelectorAll(".project-box");
+const pagination = document.getElementById("pagination");
+
+let currentPage = 1;
+const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+function showProjects(page) {
+  const start = (page - 1) * projectsPerPage;
+  const end = start + projectsPerPage;
+
+  projects.forEach((project, index) => {
+    project.style.display =
+      index >= start && index < end ? "block" : "none";
+  });
+}
+
+function createPagination() {
+  pagination.innerHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    const button = document.createElement("button");
+    button.textContent = i;
+
+    if (i === currentPage) {
+      button.classList.add("active");
+    }
+
+    button.addEventListener("click", () => {
+      currentPage = i;
+      showProjects(currentPage);
+      createPagination();
+    });
+
+    pagination.appendChild(button);
+  }
+}
+
+// Initial load
+showProjects(currentPage);
+createPagination();

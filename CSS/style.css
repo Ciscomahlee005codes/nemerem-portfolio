@@ -510,6 +510,31 @@ figcaption{
   opacity: 0.8;
   transition: all 0.5s ease-in-out;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: none;
+  background-color: var(--bg-black-50);
+  color: #333;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.pagination button.active {
+  background-color: var(--skin-color);
+  color: #fff;
+}
+
+.pagination button:hover {
+  opacity: 0.85;
+}
 /* Contact Title */
 .contact-title{
   text-align: center;
