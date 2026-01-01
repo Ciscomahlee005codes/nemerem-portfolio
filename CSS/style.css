@@ -815,7 +815,7 @@ footer{
   .skill-img{
     width: 100px;
     height: 70px;
-    border: 2px solid gainsboro;
+    /* border: 2px solid gainsboro; */
     border-radius: 10px;
   }
   .service-row{
