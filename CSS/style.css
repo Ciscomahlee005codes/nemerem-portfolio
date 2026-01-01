@@ -339,9 +339,9 @@ ul{
   transition: all 0.4s ease-in-out;
 }
 .skill-img{
-  width: 150px;
+  width: 100px;
   height: 100px;
-  border: 2px solid gainsboro;
+  /* border: 2px solid gainsboro; */
   border-radius: 10px;
 }
 figcaption{
